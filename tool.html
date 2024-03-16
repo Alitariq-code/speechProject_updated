@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Detail Tooltip</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        text-align: center;
+      }
+
+      #paragraph {
+        max-width: 80%;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        border-bottom: 1px dotted #666;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        /* Fade in tooltip - Animation */
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      /* Adding an arrow to the tooltip */
+      .tooltip .tooltiptext::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="paragraph"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var paragraphText =
+          'This is a big paragraph that you want to display on your page. Hover over any word to see details in a tooltip. This is a big paragraph that you want to display on your page. Hover over any word to see details in a tooltip. This is a big paragraph that you want to display on your page. Hover over any word to see details in a tooltip.';
+        var words = paragraphText.split(/\s+/);
+        var paragraphDiv = document.getElementById('paragraph');
+        var p = document.createElement('p'); // Create a <p> element
+
+        var htmlContent = words
+          .map(function (word) {
+            return `<span class="tooltip">${word} <span class="tooltiptext">Details about ${word}</span></span>`;
+          })
+          .join(' ');
+
+        p.innerHTML = htmlContent; // Set the innerHTML of the <p> tag
+        paragraphDiv.appendChild(p); // Append the <p> tag to the paragraphDiv
+      });
+    </script>
+  </body>
+</html>
