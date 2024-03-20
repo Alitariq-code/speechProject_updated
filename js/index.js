@@ -111,7 +111,7 @@ async function compareAudio(type, id) {
   }
 
   // Show spinner before the asynchronous operation
-  const apiUrl = ' http://127.0.0.1:5000/process_audio';
+  const apiUrl = ' http://178.16.142.39:5000/process_audio';
   let options;
   if (type === 'audio') {
     options = {
@@ -160,7 +160,7 @@ async function openAi(type, id) {
     // showSpinner('spinner4');
   }
   // showSpinner('spinner4'); // Show spinner before the asynchronous operation
-  const apiUrl = ' http://127.0.0.1:8000/process/';
+  const apiUrl = ' http://178.16.142.39:8002//process/';
   let options;
   if (type === 'audio') {
     options = {
@@ -210,7 +210,7 @@ async function vkosApi(type, id) {
   }
   // Show spinner before the asynchronous operation
 
-  const apiUrl = 'http://127.0.0.1:5001/process_audio';
+  const apiUrl = 'http://178.16.142.39:5001/process_audio';
   let options;
   if (type === 'audio') {
     options = {
